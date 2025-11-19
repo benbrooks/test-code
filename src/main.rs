@@ -16,8 +16,9 @@ const MAX_POSTS: usize = 250;
 const PORT: u16 = 2287;
 const STORAGE_FILE: &str = "posts.json";
 
-// Linux-related keywords (case-insensitive matching)
+// Linux and AI-related keywords (case-insensitive matching)
 const KEYWORDS: &[&str] = &[
+    // Linux distributions
     "linux",
     "ubuntu",
     "debian",
@@ -38,6 +39,13 @@ const KEYWORDS: &[&str] = &[
     "pop!_os",
     "endeavouros",
     "nixos",
+    // AI companies and products
+    "claude",
+    "anthropic",
+    "chatgpt",
+    "openai",
+    "gemini",
+    "mistral",
 ];
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
@@ -72,7 +80,7 @@ type SharedPosts = Arc<RwLock<Vec<Post>>>;
 
 #[tokio::main]
 async fn main() -> Result<()> {
-    println!("🚀 Starting Bluesky Linux Monitor");
+    println!("🚀 Starting Bluesky Linux & AI Monitor");
 
     // Load existing posts from disk
     let posts = load_posts().await;
@@ -307,7 +315,7 @@ async fn index_handler(State(posts): State<SharedPosts>) -> Html<String> {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="refresh" content="10">
-    <title>Bluesky Linux Monitor</title>
+    <title>Bluesky Linux & AI Monitor</title>
     <style>
         * {{
             margin: 0;
@@ -437,13 +445,13 @@ async fn index_handler(State(posts): State<SharedPosts>) -> Html<String> {
 </head>
 <body>
     <div class="header">
-        <h1>🐧 Bluesky Linux Monitor</h1>
-        <p>Real-time feed of Linux-related posts • Auto-refreshes every 10s</p>
+        <h1>🐧 Bluesky Linux & AI Monitor</h1>
+        <p>Real-time feed of Linux and AI-related posts • Auto-refreshes every 10s</p>
     </div>
 
     <div class="container">
         <div class="stats">
-            📊 Tracking {} posts mentioning Linux and related distributions
+            📊 Tracking {} posts mentioning Linux and AI topics
         </div>
 
         {}
@@ -454,7 +462,7 @@ async fn index_handler(State(posts): State<SharedPosts>) -> Html<String> {
 </html>"#,
         count,
         if count == 0 {
-            r#"<div class="empty-state">Waiting for Linux-related posts...</div>"#.to_string()
+            r#"<div class="empty-state">Waiting for Linux and AI-related posts...</div>"#.to_string()
         } else {
             String::new()
         },

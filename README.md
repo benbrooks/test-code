@@ -1,11 +1,11 @@
-# Bluesky Linux Monitor
+# Bluesky Linux & AI Monitor
 
-A high-performance Rust application that monitors the Bluesky public firehose for mentions of Linux and popular Linux distributions, displaying them in a real-time web interface.
+A high-performance Rust application that monitors the Bluesky public firehose for mentions of Linux, popular Linux distributions, and AI topics, displaying them in a real-time web interface.
 
 ## Features
 
 - **Real-time monitoring**: Connects to Bluesky's public firehose via WebSocket
-- **Smart filtering**: Detects mentions of "Linux" and 20+ popular distributions (Ubuntu, Debian, Fedora, Arch, etc.)
+- **Smart filtering**: Detects mentions of "Linux", 20+ popular distributions, and AI companies/products (Claude, ChatGPT, Gemini, etc.)
 - **Persistent storage**: Saves the last 250 posts to disk
 - **Auto-refreshing web UI**: Clean, dark-themed interface on port 2287
 - **Post details**: Displays text, images, links, and direct links to Bluesky
@@ -14,11 +14,18 @@ A high-performance Rust application that monitors the Bluesky public firehose fo
 ## Tracked Keywords
 
 The monitor searches for mentions of:
+
+**Linux & Distributions:**
 - Linux (general)
 - Ubuntu, Debian, Fedora, Arch, Manjaro, Mint
 - OpenSUSE, Gentoo, Red Hat, CentOS, Rocky, AlmaLinux
 - Kali, Parrot, Elementary, Zorin
 - Pop!_OS, EndeavourOS, NixOS
+
+**AI Companies & Products:**
+- Claude, Anthropic
+- ChatGPT, OpenAI
+- Gemini, Mistral
 
 All matching is case-insensitive.
 
