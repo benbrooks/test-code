@@ -1,0 +1,17 @@
+[package]
+name = "bluesky-linux-monitor"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+tokio = { version = "1.42", features = ["full"] }
+tokio-tungstenite = { version = "0.24", features = ["native-tls"] }
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+axum = "0.7"
+tower-http = { version = "0.6", features = ["fs"] }
+chrono = { version = "0.4", features = ["serde"] }
+anyhow = "1.0"
+futures-util = "0.3"
+reqwest = { version = "0.12", features = ["json"] }
+base64 = "0.22"

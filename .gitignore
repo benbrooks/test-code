@@ -1,0 +1,17 @@
+# Rust
+/target
+Cargo.lock
+
+# Application data
+posts.json
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
